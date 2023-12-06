@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>File Uploading</h1>
+
+<th:block th:if="session.msg">
+			<p class="text-center text-success fs-5"> [[${session.msg}]]</p>
+		
+		</th:block>
+
+<form action="upload" method="post" enctype="multipart/form-data">
+	
+	<input type="file" name="userFiles">
+	
+	<button type="submit">upload</button>
+</form>
+
+<hr>
+
+<div th:each="e: ${ll}">
+	<div>
+		<div>
+			<div>
+				<div> 
+					<img th:src="@{'/imgs/'+${e.fileName}}" th:alt="${e.fileName}" width="400" height="200">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
